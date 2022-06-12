@@ -1,5 +1,34 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+int len(int g)
+{
+  int count=0;
+  while(g>0)
+  {
+    g=g/10;
+    count++;
+  }
+  return count;
+}
+int powr(int b)
+{
+  int ten=1;
+  int i=0;
+  while(i<b)
+  {
+    ten=ten*10;
+    i++;
+  }
+  return ten;
+}
+long long com(int giv)
+{
+  static unsigned long long res;
+    res=(res*(powr(len(giv))))+(giv);
+    return res; 
+ 
+}
 int last(int given)
 {
   while(given>9)
@@ -39,9 +68,15 @@ int main()
     fin=a[z];
     a[z]=-1;
     j++;
+    if(j==n)
+      printf("res=%lld\n",com(fin));
+    else
+      com(fin);
    
-   printf("%d",fin);
+    
    }
+
     return 0;
 
 }
+
